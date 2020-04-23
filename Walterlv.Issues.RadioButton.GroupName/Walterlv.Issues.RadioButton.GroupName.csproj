@@ -1,0 +1,11 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFrameworks>netcoreapp3.1;net48</TargetFrameworks>
+    <UseWPF>true</UseWPF>
+    <RootNamespace>Walterlv.Issues</RootNamespace>
+    <AssemblyName>Walterlv.Issues.Wpf.RadioButton</AssemblyName>
+  </PropertyGroup>
+
+</Project>

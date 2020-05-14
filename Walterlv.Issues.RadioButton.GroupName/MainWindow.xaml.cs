@@ -1,17 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ComponentModel;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace Walterlv.Issues
 {
@@ -21,5 +9,26 @@ namespace Walterlv.Issues
         {
             InitializeComponent();
         }
+    }
+
+    public class Foo : INotifyPropertyChanged
+    {
+        public static Foo Instance { get; } = new Foo();
+
+        public bool Bar
+        {
+            get => _bar;
+            set
+            {
+                if (!Equals(_bar, value))
+                {
+                    _bar = value;
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Bar)));
+                }
+            }
+        }
+
+        private bool _bar;
+        public event PropertyChangedEventHandler PropertyChanged;
     }
 }

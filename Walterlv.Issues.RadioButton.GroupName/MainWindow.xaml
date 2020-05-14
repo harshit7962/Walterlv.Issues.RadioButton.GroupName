@@ -6,7 +6,15 @@
         xmlns:local="clr-namespace:Walterlv.Issues"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
-
-    </Grid>
+    <StackPanel>
+        <Border>
+            <RadioButton GroupName="A" IsChecked="{Binding Bar, Source={x:Static local:Foo.Instance}}" Content="Option 1" />
+        </Border>
+        <Border>
+            <RadioButton GroupName="A" Content="Option 2" />
+        </Border>
+        <Border>
+            <RadioButton GroupName="A" Content="Option 3" />
+        </Border>
+    </StackPanel>
 </Window>

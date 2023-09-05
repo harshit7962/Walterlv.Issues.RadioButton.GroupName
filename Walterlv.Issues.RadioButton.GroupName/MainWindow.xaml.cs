@@ -1,15 +1,22 @@
-﻿using System.ComponentModel;
+﻿using System;
+using System.ComponentModel;
 using System.Windows;
 
 namespace Walterlv.Issues
 {
     public partial class MainWindow : Window
     {
+        public string Guid { get; } = System.Guid.NewGuid().ToString();
         public MainWindow()
         {
             InitializeComponent();
+
+            Title = Guid;
+            rb1.Tag = Guid + "|| rb1"   ;
+            rb2.Tag = Guid+ "|| rb2";
         }
     }
+    
 
     public class Foo : INotifyPropertyChanged
     {

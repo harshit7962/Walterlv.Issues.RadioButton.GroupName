@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Data;
-using System.Linq;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
 
 namespace Walterlv.Issues
@@ -20,17 +14,31 @@ namespace Walterlv.Issues
                 Content = "new window",
             };
             button.Click += Button_Click;
-            new Window
+            Window initial = new Window
             {
                 Content = button,
-                Width = 200,
-                Height = 160,
-            }.Show();
+                Width = 400,
+                Height = 200,
+            };
+            initial.Show();
+
+            initial.Closing += MainWindow_Closing;
+        }
+
+        private void MainWindow_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            MessageBoxResult result = MessageBox.Show("Do you want to close the application?", "Confirmation", MessageBoxButton.YesNo);
+
+            if (result == MessageBoxResult.No)
+            {
+                e.Cancel = true; // Cancel the application's closing operation
+            }
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            new MainWindow().Show();
+            var m = new MainWindow();
+            m.Show();
         }
     }
 }

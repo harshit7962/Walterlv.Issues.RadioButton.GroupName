@@ -8,13 +8,11 @@
         Title="MainWindow" Height="450" Width="800">
     <StackPanel>
         <Border>
-            <RadioButton GroupName="A" IsChecked="{Binding Bar, Source={x:Static local:Foo.Instance}}" Content="Option 1" />
+            <RadioButton GroupName="A" IsChecked="{Binding Bar, Source={x:Static local:Foo.Instance}}" Content="Option 1" x:Name="rb1"/>
         </Border>
         <Border>
-            <RadioButton GroupName="A" Content="Option 2" />
+            <RadioButton GroupName="A" Content="Option 2" x:Name="rb2"/>
         </Border>
-        <Border>
-            <RadioButton GroupName="A" Content="Option 3" />
-        </Border>
+        
     </StackPanel>
 </Window>
